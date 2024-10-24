@@ -1,4 +1,5 @@
 // https://fsa-puppy-bowl.herokuapp.com/api/2409-ftb-eb-web-ft/players
+// imageUrl: ${puppy.imageUrl}
 // players/player-id
 // /teams
 
@@ -9,18 +10,51 @@ const main = document.querySelector(`main`);
 const getPuppies = async () => {
 
   const response = await fetch(`https://fsa-puppy-bowl.herokuapp.com/api/2409-ftb-eb-web-ft/players`)
-  
+
   // convert the API response into a JSON array/object and return
   const responseJSON = await response.json();
-  return responseJSON.data;
+  return responseJSON.data.players; // may have to remove players to have access to the players array
 }
+
+
+
+
 
 // render all puppies on the page via async/await function
 
 const renderPuppies = async () => {
 
+  // grab list from getPuppies
   const puppiesList = await getPuppies();
-  console.log(puppiesList);
+  
+  // create the LI to be put on main page and store the puppyLI into the li tag
+  const puppiesNamesLI = puppiesList.map((puppy) =>{
+    return `<li>
+                <img src="${puppy.imageUrl}" alt="${puppy.name} picture" />
+                  <br>
+                ${puppy.name}
+            </li>`
+  })
+
+
+  // create the OL to put on the HTML page
+  const ol = document.createElement(`ol`);
+
+  ol.innerHTML = puppiesNamesLI.join(``);
+  
+  main.replaceChildren(ol);
+
+  // grab the LIs just placed on html
+  const puppyLIs = document.querySelectorAll(`li`);
+
+  puppyLIs.forEach((puppy) => {
+    puppy.addEventListener(`click`, (event) => {
+      console.log(event.target);
+    })
+  })
+
+
+
 
 }
 
