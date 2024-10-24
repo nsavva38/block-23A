@@ -88,12 +88,12 @@ const renderPuppy = async (puppy) => {
   const clickedPuppy = findPuppy(puppy, puppiesList);
 
   main.innerHTML = `
-  <h2>${clickedPuppy.name}</h2>
+  <h2>Meet ${clickedPuppy.name}!</h2>
   <img src="${clickedPuppy.imageUrl}" alt="${clickedPuppy.name} picture" />
   <ul>
-    <li>${clickedPuppy.breed}</li>
-    <li>${clickedPuppy.status}</li>
-    <li>${clickedPuppy.teamId}</li>
+    <li>Breed: ${clickedPuppy.breed}</li>
+    <li>Status: ${clickedPuppy.status}</li>
+    <li>TeamID: ${clickedPuppy.teamId}</li>
   </ul>
   <br>
   <button>Back</button>
