@@ -4,6 +4,17 @@
 // /teams
 
 // grab the main and leave it as global
+
+// made global find puppy function 
+const findPuppy = (toFind, array) => {
+  for (let i = 0; i < array.length; i++) {
+    if(array[i].name === toFind) {
+      return array[i];
+    }
+  }
+}
+
+
 const main = document.querySelector(`main`);
 
 // create an async/await function to fetch the response from the API
@@ -49,10 +60,6 @@ const renderPuppies = async () => {
   // add eventListners to the LIs
   puppyLIs.forEach((puppy) => {
     puppy.addEventListener(`click`, (event) => {
-      console.log(event);
-      console.log(event.target.alt);
-      console.log(event.target.innerText);
-      console.log(``);
 
       if(event.target.alt) {
         renderPuppy(event.target.alt);
@@ -72,11 +79,21 @@ const renderPuppies = async () => {
 
 
 const renderPuppy = async (puppy) => {
-  // get the API of the puppy
-  // const response = await fetch(`${puppy.imageUrl}`);
-  // const puppyJSON = await response.json();
+  // get the API of the puppies via the getPuppies
+  // find the puppy via the name
 
-  console.log(`rendered puppy:`, puppy);
+  // grab list from getPuppies
+  const puppiesList = await getPuppies();
+  // find puppy
+  const clickedPuppy = findPuppy(puppy, puppiesList);
+
+  main.innerHTML = `
+  <h2>${clickedPuppy.name}</h2>
+  <img src="${clickedPuppy.imageUrl}" alt="${clickedPuppy.name} picture" />
+  <br>
+  <button>Back</button>
+  `;
+
 }
 
 
