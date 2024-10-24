@@ -30,9 +30,8 @@ const renderPuppies = async () => {
   // create the LI to be put on main page and store the puppyLI into the li tag
   const puppiesNamesLI = puppiesList.map((puppy) =>{
     return `<li>
-                <img src="${puppy.imageUrl}" alt="${puppy.name} picture" />
-                  <br>
-                ${puppy.name}
+                <h2>${puppy.name}</h2>
+                <img src="${puppy.imageUrl}" alt="${puppy.name}" />
             </li>`
   })
 
@@ -47,15 +46,38 @@ const renderPuppies = async () => {
   // grab the LIs just placed on html
   const puppyLIs = document.querySelectorAll(`li`);
 
+  // add eventListners to the LIs
   puppyLIs.forEach((puppy) => {
     puppy.addEventListener(`click`, (event) => {
-      console.log(event.target);
+      console.log(event);
+      console.log(event.target.alt);
+      console.log(event.target.innerText);
+      console.log(``);
+
+      if(event.target.alt) {
+        renderPuppy(event.target.alt);
+      }
+      else if(event.target.innerText) {
+        renderPuppy(event.target.innerText);
+      }
+
     })
   })
 
 
-
-
 }
+
+
+
+
+
+const renderPuppy = async (puppy) => {
+  // get the API of the puppy
+  // const response = await fetch(`${puppy.imageUrl}`);
+  // const puppyJSON = await response.json();
+
+  console.log(`rendered puppy:`, puppy);
+}
+
 
 renderPuppies();
