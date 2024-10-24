@@ -90,9 +90,23 @@ const renderPuppy = async (puppy) => {
   main.innerHTML = `
   <h2>${clickedPuppy.name}</h2>
   <img src="${clickedPuppy.imageUrl}" alt="${clickedPuppy.name} picture" />
+  <ul>
+    <li>${clickedPuppy.breed}</li>
+    <li>${clickedPuppy.status}</li>
+    <li>${clickedPuppy.teamId}</li>
+  </ul>
   <br>
   <button>Back</button>
   `;
+
+   // grab the button via querySelect
+   const button = document.querySelector(`button`);
+
+   // addEventListener to button so when clicked, it can render all the pokemon via renderAllPokemon function
+   button.addEventListener(`click`, () => {
+     renderPuppies();
+   })
+
 
 }
 
