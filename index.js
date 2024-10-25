@@ -59,33 +59,64 @@ const renderPuppies = async () => {
   console.log(puppiesTeams);
   console.log(puppiesTeams[0].name);
   console.log(puppiesTeams[0].players[0].name); // players IS NOT a subset of name
+  console.log(``);
+
+  const ol = document.createElement(`ol`);
+  for (let i = 0; i < puppiesTeams.length; i++) {
+    const h2 = document.createElement(`h2`);
+    const li = document.createElement(`li`);
+    const ul = document.createElement(`ul`);
+    h2.innerText = `${puppiesTeams[i].name}`;
+    li.appendChild(h2);
+    ol.appendChild(li);
+    main.appendChild(ol);
+    for (let j = 0; j < puppiesTeams[i].players.length; j++) {
+      console.log(puppiesTeams[i].players[j].name);
+      const liPuppy = document.createElement(`li`);
+      liPuppy.innerText = `${puppiesTeams[i].players[j].name}`;
+      ul.appendChild(liPuppy);
+      main.appendChild(ul);
+    }
+    console.log(``);
+  }
   
-  const puppyTeamPlayersLI = returnLIs(puppiesTeams);
-  console.log(puppyTeamPlayersLI);
+  // const puppyTeamPlayersLI = returnLIs(puppiesTeams);
+  // console.log(puppyTeamPlayersLI);
 
 // append the second/subsequent team???
 // 
 
 
   // create the LI to be put on main page and store the puppyLI into the li tag
-  // while loop????
-  const puppyTeamNamesLI = puppiesTeams.map((puppyTeam) =>{
-    console.log(`puppyTeam:`, puppyTeam);
-    console.log(`puppyTeam.players:`, puppyTeam.players);
-    console.log(`puppyTeam.players[0].name:`, puppyTeam.players[0].name);
-    console.log(``);
-    return `<li>
-                <h2>${puppyTeam.name}</h2>
-                ${puppyTeam.players}
-            </li>`
+
+
+  const puppyTeamH2 = puppiesTeams.map((puppyTeam) => {
+    return `<h2>${puppyTeam.name}</h2>`;
   })
 
-  // console.log(puppyTeamNamesLI);
+  console.log(puppyTeamH2);
+
+  const puppyTeamNamesLI = puppiesTeams.map((puppyTeam) =>{
+    const tempArray = [];
+    for (let i = 0; i < puppyTeam.players.length; i++) {
+      tempArray.push(`<li>${puppyTeam.players[i].name}</li>`);
+    }
+
+    console.log(tempArray);
+    return tempArray.join(``);
+
+  })
+
+  console.log(puppyTeamNamesLI);
+
+  const puppyTeamElements = [];
+
+
 
   // create the OL to put on the HTML page
-  const ul = document.createElement(`ul`);
-  ul.innerHTML = puppyTeamNamesLI.join(``); 
-  main.replaceChildren(ul);
+  // const ol = document.createElement(`ol`);
+  // ol.innerHTML = puppyTeamNamesLI.join(``); 
+  // main.replaceChildren(ol);
 
 //   // grab the LIs just placed on html
 //   const puppyLIs = document.querySelectorAll(`li`);
