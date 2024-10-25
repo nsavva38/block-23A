@@ -124,6 +124,7 @@ const renderPuppy = async (puppy) => {
 
    // addEventListener to button so when clicked, it can render all the puppies via renderPuppies function
    button.addEventListener(`click`, () => {
+    main.innerHTML = ``;
      renderPuppies();
    })
 
