@@ -1,4 +1,4 @@
-// https://fsa-puppy-bowl.herokuapp.com/api/2409-ftb-eb-web-ft/players
+// https://fsa-puppy-bowl.herokuapp.com/api/2409-ftb-et-web-ft/players
 // imageUrl: ${puppy.imageUrl}
 // players/player-id
 // /teams
@@ -20,10 +20,11 @@ const main = document.querySelector(`main`);
 // create an async/await function to fetch the response from the API
 const getPuppies = async () => {
 
-  const response = await fetch(`https://fsa-puppy-bowl.herokuapp.com/api/2409-ftb-eb-web-ft/players`)
+  const response = await fetch(`https://fsa-puppy-bowl.herokuapp.com/api/2409-ftb-et-web-ft/players`)
 
   // convert the API response into a JSON array/object and return
   const responseJSON = await response.json();
+  console.log(responseJSON.data);
   return responseJSON.data.players; // may have to remove players to have access to the players array
 }
 
@@ -49,9 +50,7 @@ const renderPuppies = async () => {
 
   // create the OL to put on the HTML page
   const ol = document.createElement(`ol`);
-
-  ol.innerHTML = puppiesNamesLI.join(``);
-  
+  ol.innerHTML = puppiesNamesLI.join(``); 
   main.replaceChildren(ol);
 
   // grab the LIs just placed on html
@@ -60,7 +59,6 @@ const renderPuppies = async () => {
   // add eventListners to the LIs
   puppyLIs.forEach((puppy) => {
     puppy.addEventListener(`click`, (event) => {
-
       if(event.target.alt) {
         renderPuppy(event.target.alt);
       }
@@ -86,6 +84,7 @@ const renderPuppy = async (puppy) => {
   const puppiesList = await getPuppies();
   // find puppy
   const clickedPuppy = findPuppy(puppy, puppiesList);
+  console.log(clickedPuppy);
 
   main.innerHTML = `
   <h2>Meet ${clickedPuppy.name}!</h2>
@@ -102,7 +101,7 @@ const renderPuppy = async (puppy) => {
    // grab the button via querySelect
    const button = document.querySelector(`button`);
 
-   // addEventListener to button so when clicked, it can render all the pokemon via renderAllPokemon function
+   // addEventListener to button so when clicked, it can render all the puppies via renderPuppies function
    button.addEventListener(`click`, () => {
      renderPuppies();
    })
