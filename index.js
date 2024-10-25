@@ -16,21 +16,21 @@ const findPuppy = (toFind, array) => {
 
 
 
-const returnLIs = (array) => {
-  // console.log(`test`);
-  const arrayToFill = [];
-  for (let i = 0; i < array.length; i++) {
-    // console.log(`i:`,i);
-    const tempArray = [];
-    for (let j = 0; j < array[i].players.length; j++) {
-      // console.log(`j:`,j);
-      // console.log(array[i].players[j]);
-      tempArray.push(`<li>${array[i].players[j].name}</li>`);
-    }
-    arrayToFill.push(tempArray);
-  }
-  return arrayToFill;
-}
+// const returnLIs = (array) => {
+//   // console.log(`test`);
+//   const arrayToFill = [];
+//   for (let i = 0; i < array.length; i++) {
+//     // console.log(`i:`,i);
+//     const tempArray = [];
+//     for (let j = 0; j < array[i].players.length; j++) {
+//       // console.log(`j:`,j);
+//       // console.log(array[i].players[j]);
+//       tempArray.push(`<li>${array[i].players[j].name}</li>`);
+//     }
+//     arrayToFill.push(tempArray);
+//   }
+//   return arrayToFill;
+// }
 
 
 
@@ -75,7 +75,8 @@ const renderPuppies = async () => {
       const liPuppy = document.createElement(`li`);
       liPuppy.innerText = `${puppiesTeams[i].players[j].name}`;
       ul.appendChild(liPuppy);
-      main.appendChild(ul);
+      ol.appendChild(ul);
+      main.appendChild(ol);
     }
     console.log(``);
   }
@@ -90,26 +91,26 @@ const renderPuppies = async () => {
   // create the LI to be put on main page and store the puppyLI into the li tag
 
 
-  const puppyTeamH2 = puppiesTeams.map((puppyTeam) => {
-    return `<h2>${puppyTeam.name}</h2>`;
-  })
+  // const puppyTeamH2 = puppiesTeams.map((puppyTeam) => {
+  //   return `<h2>${puppyTeam.name}</h2>`;
+  // })
 
-  console.log(puppyTeamH2);
+  // console.log(puppyTeamH2);
 
-  const puppyTeamNamesLI = puppiesTeams.map((puppyTeam) =>{
-    const tempArray = [];
-    for (let i = 0; i < puppyTeam.players.length; i++) {
-      tempArray.push(`<li>${puppyTeam.players[i].name}</li>`);
-    }
+  // const puppyTeamNamesLI = puppiesTeams.map((puppyTeam) =>{
+  //   const tempArray = [];
+  //   for (let i = 0; i < puppyTeam.players.length; i++) {
+  //     tempArray.push(`<li>${puppyTeam.players[i].name}</li>`);
+  //   }
 
-    console.log(tempArray);
-    return tempArray.join(``);
+  //   console.log(tempArray);
+  //   return tempArray.join(``);
 
-  })
+  // })
 
-  console.log(puppyTeamNamesLI);
+  // console.log(puppyTeamNamesLI);
 
-  const puppyTeamElements = [];
+  // const puppyTeamElements = [];
 
 
 
