@@ -18,10 +18,6 @@ const findPuppy = (toFind, array) => {
 }
 
 
-
-
-
-
 const main = document.querySelector(`main`);
 
 // create an async/await function to fetch the response from the API
@@ -35,18 +31,12 @@ const getPuppies = async () => {
 }
 
 
-
-
 // render all puppies on the page via async/await function
 
 const renderPuppies = async () => {
 
   // grab list from getPuppies
   const puppiesTeams = await getPuppies();
-  console.log(puppiesTeams);
-  console.log(puppiesTeams[0].name);
-  console.log(puppiesTeams[0].players[0].name); // players IS NOT a subset of name
-  console.log(``);
 
   const ol = document.createElement(`ol`);
 
@@ -59,7 +49,6 @@ const renderPuppies = async () => {
     ol.appendChild(li);
     main.appendChild(ol);
     for (let j = 0; j < puppiesTeams[i].players.length; j++) {
-      console.log(puppiesTeams[i].players[j].name);
       const liPuppy = document.createElement(`li`);
       liPuppy.innerHTML = `<h3>${puppiesTeams[i].players[j].name}</h3>
                             <img src="${puppiesTeams[i].players[j].imageUrl}" 
@@ -68,13 +57,11 @@ const renderPuppies = async () => {
       ol.appendChild(ul);
       main.appendChild(ol);
     }
-    console.log(``);
   }
 
 
   // grab the LIs just placed on html
   const puppyLIs = document.querySelectorAll(`ul > li`);
-  console.log(puppyLIs);
 
   // add eventListners to the LIs
   puppyLIs.forEach((puppy) => {
@@ -94,18 +81,15 @@ const renderPuppies = async () => {
 
 
 
-
-
 const renderPuppy = async (puppy) => {
   // get the API of the puppies via the getPuppies
   // find the puppy via the name
 
   // grab list from getPuppies
   const puppiesList = await getPuppies();
-  console.log(`puppiesList:`, puppiesList);
+
   // find puppy
   const clickedPuppy = findPuppy(puppy, puppiesList);
-  console.log(clickedPuppy);
 
   main.innerHTML = `
   <h2>Meet ${clickedPuppy.name}!</h2>
