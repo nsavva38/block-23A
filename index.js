@@ -5,6 +5,33 @@
 
 // grab the main and leave it as global
 
+
+const renderMain = (puppiesTeams) => {
+
+  const ol = document.createElement(`ol`);
+
+  for (let i = 0; i < puppiesTeams.length; i++) {
+    const h2 = document.createElement(`h2`);
+    const li = document.createElement(`li`);
+    const ul = document.createElement(`ul`);
+    h2.innerText = `${puppiesTeams[i].name}`;
+    li.appendChild(h2);
+    ol.appendChild(li);
+    main.appendChild(ol);
+    for (let j = 0; j < puppiesTeams[i].players.length; j++) {
+      const liPuppy = document.createElement(`li`);
+      liPuppy.innerHTML = `<h3>${puppiesTeams[i].players[j].name}</h3>
+                            <img src="${puppiesTeams[i].players[j].imageUrl}" 
+                              alt="${puppiesTeams[i].players[j].name}" />`;
+      ul.appendChild(liPuppy);
+      ol.appendChild(ul);
+      main.appendChild(ol);
+    }
+  }
+
+
+}
+
 // made global find puppy function 
 const findPuppy = (toFind, array) => {
   for (let i = 0; i < array.length; i++) {
@@ -38,26 +65,7 @@ const renderPuppies = async () => {
   // grab list from getPuppies
   const puppiesTeams = await getPuppies();
 
-  const ol = document.createElement(`ol`);
-
-  for (let i = 0; i < puppiesTeams.length; i++) {
-    const h2 = document.createElement(`h2`);
-    const li = document.createElement(`li`);
-    const ul = document.createElement(`ul`);
-    h2.innerText = `${puppiesTeams[i].name}`;
-    li.appendChild(h2);
-    ol.appendChild(li);
-    main.appendChild(ol);
-    for (let j = 0; j < puppiesTeams[i].players.length; j++) {
-      const liPuppy = document.createElement(`li`);
-      liPuppy.innerHTML = `<h3>${puppiesTeams[i].players[j].name}</h3>
-                            <img src="${puppiesTeams[i].players[j].imageUrl}" 
-                              alt="${puppiesTeams[i].players[j].name}" />`;
-      ul.appendChild(liPuppy);
-      ol.appendChild(ul);
-      main.appendChild(ol);
-    }
-  }
+  renderMain(puppiesTeams);
 
 
   // grab the LIs just placed on html
