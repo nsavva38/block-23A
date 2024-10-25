@@ -8,29 +8,16 @@
 // made global find puppy function 
 const findPuppy = (toFind, array) => {
   for (let i = 0; i < array.length; i++) {
-    if(array[i].name === toFind) {
-      return array[i];
+    for (let j = 0; j < array[i].players.length; j++) {
+      if(array[i].players[j].name === toFind) {
+        return array[i].players[j];
+
+      } 
     }
   }
 }
 
 
-
-// const returnLIs = (array) => {
-//   // console.log(`test`);
-//   const arrayToFill = [];
-//   for (let i = 0; i < array.length; i++) {
-//     // console.log(`i:`,i);
-//     const tempArray = [];
-//     for (let j = 0; j < array[i].players.length; j++) {
-//       // console.log(`j:`,j);
-//       // console.log(array[i].players[j]);
-//       tempArray.push(`<li>${array[i].players[j].name}</li>`);
-//     }
-//     arrayToFill.push(tempArray);
-//   }
-//   return arrayToFill;
-// }
 
 
 
@@ -62,6 +49,7 @@ const renderPuppies = async () => {
   console.log(``);
 
   const ol = document.createElement(`ol`);
+
   for (let i = 0; i < puppiesTeams.length; i++) {
     const h2 = document.createElement(`h2`);
     const li = document.createElement(`li`);
@@ -74,7 +62,8 @@ const renderPuppies = async () => {
       console.log(puppiesTeams[i].players[j].name);
       const liPuppy = document.createElement(`li`);
       liPuppy.innerHTML = `<h3>${puppiesTeams[i].players[j].name}</h3>
-                            <img src="${puppiesTeams[i].players[j].imageUrl}" alt="${puppiesTeams[i].players[j].name}" />`;
+                            <img src="${puppiesTeams[i].players[j].imageUrl}" 
+                              alt="${puppiesTeams[i].players[j].name}" />`;
       ul.appendChild(liPuppy);
       ol.appendChild(ul);
       main.appendChild(ol);
@@ -107,38 +96,39 @@ const renderPuppies = async () => {
 
 
 
-// const renderPuppy = async (puppy) => {
-//   // get the API of the puppies via the getPuppies
-//   // find the puppy via the name
+const renderPuppy = async (puppy) => {
+  // get the API of the puppies via the getPuppies
+  // find the puppy via the name
 
-//   // grab list from getPuppies
-//   const puppiesList = await getPuppies();
-//   // find puppy
-//   const clickedPuppy = findPuppy(puppy, puppiesList);
-//   console.log(clickedPuppy);
+  // grab list from getPuppies
+  const puppiesList = await getPuppies();
+  console.log(`puppiesList:`, puppiesList);
+  // find puppy
+  const clickedPuppy = findPuppy(puppy, puppiesList);
+  console.log(clickedPuppy);
 
-//   main.innerHTML = `
-//   <h2>Meet ${clickedPuppy.name}!</h2>
-//   <img src="${clickedPuppy.imageUrl}" alt="${clickedPuppy.name} picture" />
-//   <ul>
-//     <li>Breed: ${clickedPuppy.breed}</li>
-//     <li>Status: ${clickedPuppy.status}</li>
-//     <li>TeamID: ${clickedPuppy.teamId}</li>
-//   </ul>
-//   <br>
-//   <button>Back</button>
-//   `;
+  main.innerHTML = `
+  <h2>Meet ${clickedPuppy.name}!</h2>
+  <img src="${clickedPuppy.imageUrl}" alt="${clickedPuppy.name} picture" />
+  <ul>
+    <li>Breed: ${clickedPuppy.breed}</li>
+    <li>Status: ${clickedPuppy.status}</li>
+    <li>TeamID: ${clickedPuppy.teamId}</li>
+  </ul>
+  <br>
+  <button>Back</button>
+  `;
 
-//    // grab the button via querySelect
-//    const button = document.querySelector(`button`);
+   // grab the button via querySelect
+   const button = document.querySelector(`button`);
 
-//    // addEventListener to button so when clicked, it can render all the puppies via renderPuppies function
-//    button.addEventListener(`click`, () => {
-//      renderPuppies();
-//    })
+   // addEventListener to button so when clicked, it can render all the puppies via renderPuppies function
+   button.addEventListener(`click`, () => {
+     renderPuppies();
+   })
 
 
-// }
+}
 
 
 renderPuppies();
