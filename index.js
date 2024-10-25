@@ -73,7 +73,8 @@ const renderPuppies = async () => {
     for (let j = 0; j < puppiesTeams[i].players.length; j++) {
       console.log(puppiesTeams[i].players[j].name);
       const liPuppy = document.createElement(`li`);
-      liPuppy.innerText = `${puppiesTeams[i].players[j].name}`;
+      liPuppy.innerHTML = `<h3>${puppiesTeams[i].players[j].name}</h3>
+                            <img src="${puppiesTeams[i].players[j].imageUrl}" alt="${puppiesTeams[i].players[j].name}" />`;
       ul.appendChild(liPuppy);
       ol.appendChild(ul);
       main.appendChild(ol);
@@ -82,21 +83,22 @@ const renderPuppies = async () => {
   }
 
 
-//   // grab the LIs just placed on html
-//   const puppyLIs = document.querySelectorAll(`li`);
+  // grab the LIs just placed on html
+  const puppyLIs = document.querySelectorAll(`ul > li`);
+  console.log(puppyLIs);
 
-//   // add eventListners to the LIs
-//   puppyLIs.forEach((puppy) => {
-//     puppy.addEventListener(`click`, (event) => {
-//       if(event.target.alt) {
-//         renderPuppy(event.target.alt);
-//       }
-//       else if(event.target.innerText) {
-//         renderPuppy(event.target.innerText);
-//       }
+  // add eventListners to the LIs
+  puppyLIs.forEach((puppy) => {
+    puppy.addEventListener(`click`, (event) => {
+      if(event.target.alt) {
+        renderPuppy(event.target.alt);
+      }
+      else if(event.target.innerText) {
+        renderPuppy(event.target.innerText);
+      }
 
-//     })
-//   })
+    })
+  })
 
 
 }
