@@ -80,44 +80,7 @@ const renderPuppies = async () => {
     }
     console.log(``);
   }
-  
-  // const puppyTeamPlayersLI = returnLIs(puppiesTeams);
-  // console.log(puppyTeamPlayersLI);
 
-// append the second/subsequent team???
-// 
-
-
-  // create the LI to be put on main page and store the puppyLI into the li tag
-
-
-  // const puppyTeamH2 = puppiesTeams.map((puppyTeam) => {
-  //   return `<h2>${puppyTeam.name}</h2>`;
-  // })
-
-  // console.log(puppyTeamH2);
-
-  // const puppyTeamNamesLI = puppiesTeams.map((puppyTeam) =>{
-  //   const tempArray = [];
-  //   for (let i = 0; i < puppyTeam.players.length; i++) {
-  //     tempArray.push(`<li>${puppyTeam.players[i].name}</li>`);
-  //   }
-
-  //   console.log(tempArray);
-  //   return tempArray.join(``);
-
-  // })
-
-  // console.log(puppyTeamNamesLI);
-
-  // const puppyTeamElements = [];
-
-
-
-  // create the OL to put on the HTML page
-  // const ol = document.createElement(`ol`);
-  // ol.innerHTML = puppyTeamNamesLI.join(``); 
-  // main.replaceChildren(ol);
 
 //   // grab the LIs just placed on html
 //   const puppyLIs = document.querySelectorAll(`li`);
