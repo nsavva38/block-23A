@@ -100,15 +100,15 @@ const renderPuppy = async (puppy) => {
   const clickedPuppy = findPuppy(puppy, puppiesList);
 
   main.innerHTML = `
-  <h2>Meet ${clickedPuppy.name}!</h2>
-  <img src="${clickedPuppy.imageUrl}" alt="${clickedPuppy.name} picture" />
-  <ul>
-    <li>Breed: ${clickedPuppy.breed}</li>
-    <li>Status: ${clickedPuppy.status}</li>
-    <li>TeamID: ${clickedPuppy.teamId}</li>
-  </ul>
-  <br>
-  <button>Back</button>
+  <div id="puppy">
+    <h2>Meet ${clickedPuppy.name}!</h2>
+    <img src="${clickedPuppy.imageUrl}" alt="${clickedPuppy.name} picture" class="inPuppyImage" />
+    <br>
+    <p class="inPuppy">Breed: ${clickedPuppy.breed}</p>
+    <p class="inPuppy">Status: ${clickedPuppy.status}</p>
+    <br>
+    <button>Back</button>
+  </div>
   `;
 
    // grab the button via querySelect

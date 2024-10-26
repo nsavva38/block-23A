@@ -3,10 +3,34 @@ body {
 }
 
 img {
-  width: 15%;
+  width: 50%;
   
+}
+
+h1 {
+  text-align: center;
 }
 
 h2 {
   border: 5%;
+}
+
+ul{
+  list-style: none;
+  display: inline-flex;
+}
+li{
+  display: inline;
+}
+
+#puppy {
+  text-align: center;
+}
+
+.inPuppy {
+  font-size: 150%;
+}
+
+.inPuppyImage {
+  width: 30%;
 }
