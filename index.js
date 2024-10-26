@@ -107,9 +107,18 @@ const renderPuppy = async (puppy) => {
     <p class="inPuppy">Breed: ${clickedPuppy.breed}</p>
     <p class="inPuppy">Status: ${clickedPuppy.status}</p>
     <br>
-    <button>Back</button>
+    <button class="buttonImage" type="image">
+     <img src="https://th.bing.com/th/id/OIP.WUJcmWtuCJ82zD5L9ove6gHaGy?w=213&h=194&c=7&r=0&o=5&pid=1.7" 
+     alt="Paw Button">
+    </button>
+    <br>
+    Back To Home
   </div>
   `;
+
+  // <button type="image">
+  //   <img src="https://th.bing.com/th/id/OIP.WUJcmWtuCJ82zD5L9ove6gHaGy?w=213&h=194&c=7&r=0&o=5&pid=1.7" alt="Paw Button">
+  // </button>
 
    // grab the button via querySelect
    const button = document.querySelector(`button`);

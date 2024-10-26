@@ -34,3 +34,10 @@ li{
 .inPuppyImage {
   width: 30%;
 }
+
+.buttonImage {
+  text-align: center;
+  background-color: lightgray;
+  width: 35%;
+  border: none;
+}
