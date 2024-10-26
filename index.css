@@ -38,6 +38,27 @@ li{
 .buttonImage {
   text-align: center;
   background-color: lightgray;
-  width: 35%;
+  width: 20%;
   border: none;
+}
+
+
+.imageButton {
+  position: relative;
+  text-align: center;
+  color: white; /* Text color */
+}
+
+ /* .imageButton img {
+  width: 100%;
+} */
+
+.text {
+  /* position: center; */
+  top: 60%;
+  left: 50%;
+  font-size: 100%;
+  transform: translate(0%, -225%);
+  color: white;
+
 }

@@ -108,11 +108,12 @@ const renderPuppy = async (puppy) => {
     <p class="inPuppy">Status: ${clickedPuppy.status}</p>
     <br>
     <button class="buttonImage" type="image">
-     <img src="https://th.bing.com/th/id/OIP.WUJcmWtuCJ82zD5L9ove6gHaGy?w=213&h=194&c=7&r=0&o=5&pid=1.7" 
-     alt="Paw Button">
+      <div id="imageButton">
+        <img src="https://th.bing.com/th/id/OIP.WUJcmWtuCJ82zD5L9ove6gHaGy?w=213&h=194&c=7&r=0&o=5&pid=1.7" 
+        alt="Paw Button">
+        <div class="text">Back</div>
+      </div>
     </button>
-    <br>
-    Back To Home
   </div>
   `;
 
