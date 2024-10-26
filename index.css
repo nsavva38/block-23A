@@ -1,14 +1,26 @@
 body {
-  background-color: lightgray;
+  background-color: lightblue;
+  background-image: url(https://th.bing.com/th/id/OIP.nc_gboFFY7MOjdiC129jXgHaE6?w=270&h=180&c=7&r=0&o=5&pid=1.7);
+  background-size: cover;
+  color: rgb(251, 251, 251);
 }
 
 img {
   width: 50%;
+  border-radius: 5%;
   
 }
 
 h1 {
   text-align: center;
+}
+
+h3 {
+  
+}
+h3>span {
+  background-color: rgb(167, 94, 34);
+  line-height: 2
 }
 
 h2 {
@@ -22,6 +34,7 @@ ul{
 li{
   display: inline;
 }
+
 
 #puppy {
   text-align: center;
@@ -37,9 +50,10 @@ li{
 
 .buttonImage {
   text-align: center;
-  background-color: lightgray;
+  background-color: rgba(2, 135, 40, 0);
   width: 20%;
   border: none;
+  border-radius: 25%;
 }
 
 

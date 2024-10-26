@@ -3,8 +3,6 @@
 // players/player-id
 // /teams to access the teams rather than all the players
 
-// grab the main and leave it as global
-
 
 const renderMain = (puppiesTeams) => {
 
@@ -20,7 +18,7 @@ const renderMain = (puppiesTeams) => {
     main.appendChild(ol);
     for (let j = 0; j < puppiesTeams[i].players.length; j++) {
       const liPuppy = document.createElement(`li`);
-      liPuppy.innerHTML = `<h3>${puppiesTeams[i].players[j].name}</h3>
+      liPuppy.innerHTML = `<h3><span>${puppiesTeams[i].players[j].name}</span></h3>
                             <img src="${puppiesTeams[i].players[j].imageUrl}" 
                               alt="${puppiesTeams[i].players[j].name}" />`;
       ul.appendChild(liPuppy);
@@ -45,6 +43,7 @@ const findPuppy = (toFind, array) => {
 }
 
 
+// grab the main and leave it as global
 const main = document.querySelector(`main`);
 
 // create an async/await function to fetch the response from the API
@@ -116,10 +115,6 @@ const renderPuppy = async (puppy) => {
     </button>
   </div>
   `;
-
-  // <button type="image">
-  //   <img src="https://th.bing.com/th/id/OIP.WUJcmWtuCJ82zD5L9ove6gHaGy?w=213&h=194&c=7&r=0&o=5&pid=1.7" alt="Paw Button">
-  // </button>
 
    // grab the button via querySelect
    const button = document.querySelector(`button`);
