@@ -2,6 +2,7 @@ body {
   background-color: lightblue;
   background-image: url(https://th.bing.com/th/id/OIP.nc_gboFFY7MOjdiC129jXgHaE6?w=270&h=180&c=7&r=0&o=5&pid=1.7);
   background-size: cover;
+  background-repeat: no-repeat;
   color: rgb(251, 251, 251);
 }
 
